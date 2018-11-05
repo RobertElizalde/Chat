@@ -1,0 +1,26 @@
+library ieee;
+use ieee.std_logic_1164.all;
+library lattice;
+use lattice.components.all;
+
+entity codificador1 is
+	port(
+		e0,e1,e2,e3,e4,e5,e6,e7,e8: in std_logic;
+		f: out std_logic_vector(3 downto 0));		
+	end codificador1;
+	
+architecture codificador0 of codificador1 is
+	begin
+		process(e0,e1,e2,e3,e4,e5,e6,e7,e8) is
+			f <= "1000" when e8 = '1' else
+			     "0111" when e7 = '1' else
+				 "0110" when e6 = '1' else
+				 "0101" when e5 = '1' else
+				 "0100" when e4 = '1' else
+				 "0011" when e3 = '1' else
+				 "0010" when e2 = '1' else
+				 "0001" when e1 = '1' else
+				 "0000" when others;
+		end process;
+	end codificador0;
+		 
